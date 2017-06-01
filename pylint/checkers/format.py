@@ -507,8 +507,8 @@ class FormatChecker(BaseTokenChecker):
 
     def process_module(self, module):
         self._keywords_with_parens = set()
-        if 'print_function' in module.future_imports:
-            self._keywords_with_parens.add('print')
+        # Print statement is always allowed to have parantheses.
+        self._keywords_with_parens.add('print')
 
     def _check_keyword_parentheses(self, tokens, start):
         """Check that there are not unnecessary parens after a keyword.
